@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Editform</title>
+        <link href="/static/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div >
+            <a href="/"><h3>Home</h3></a>
+            <form action="{{url_for('update_payment',id=payment.id)}}" method="post">
+                <h2> Edit Payment Form</h2>
+                {% if message %}
+                   <h2 style="color: red;">{{ message }}</h2>
+                {% endif %}
+                <div>
+                    <label for="amount">Amount </label>
+                    <input type="text", name="amount" value={{payment.amount}}>
+                </div>
+                
+                <div>
+                    <label for="category">Category</label>
+                    <select name="category">
+                        <option value="" disabled selected>Select category</option>
+                        <option value="credit">Debit</option>
+                        <option value="debit">Credit</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="description"> Description</label>
+                    <input type="text", name="description" value={{payment.description}}>
+                </div>
+                <div>
+                    <label for="date">Date</label>
+                    <input type="date" name="date">
+                </div>
+
+                <button type="submit">Submit</button>
+
+            </form>
+        </div>
+    </body>
+</html>
